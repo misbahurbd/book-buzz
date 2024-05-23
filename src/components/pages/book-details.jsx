@@ -5,6 +5,7 @@ import {
 } from "../../helper/local-storage"
 
 import { useEffect } from "react"
+import NotFoundPage from "./not-found"
 
 const BookDetails = () => {
   const books = useLoaderData()
@@ -22,6 +23,10 @@ const BookDetails = () => {
   useEffect(() => {
     document.title = `${book.bookName} - Book Buzz`
   }, [book])
+
+  if (!book) {
+    return <NotFoundPage />
+  }
 
   return (
     <section className="container flex gap-10 items-stretch">
