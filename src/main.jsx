@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         loader: () => fetch("/db.json"),
       },
       {
-        path: "*",
+        path: "/*",
         element: <NotFoundPage />,
       },
     ],
