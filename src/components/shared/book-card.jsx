@@ -1,9 +1,10 @@
 import { IoStarOutline } from "react-icons/io5"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 
 const BookCard = ({ book }) => {
   return (
-    <a href={`/book/${book.bookId}`}>
+    <Link to={`/book/${book.bookId}`}>
       <article
         key={book.bookId}
         className="rounded-3xl p-6 border-2 border-black/10 space-y-6"
@@ -39,7 +40,7 @@ const BookCard = ({ book }) => {
           </div>
         </div>
       </article>
-    </a>
+    </Link>
   )
 }
 export default BookCard
