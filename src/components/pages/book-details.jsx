@@ -1,5 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { addReadBookList } from "../../helper/local-storage"
+import {
+  addToBookReadList,
+  addToBookWishlist,
+} from "../../helper/local-storage"
 
 const BookDetails = () => {
   const books = useLoaderData()
@@ -7,11 +10,11 @@ const BookDetails = () => {
   const book = books.find(data => data.bookId === bookId)
 
   const onRead = () => {
-    addReadBookList(bookId)
+    addToBookReadList(bookId)
   }
 
   const onWishlist = () => {
-    console.log("Add to wishlist %s", bookId)
+    addToBookWishlist(bookId)
   }
 
   return (
@@ -39,7 +42,7 @@ const BookDetails = () => {
           <div className="flex gap-2 items-center">
             {book.tags.map(tag => (
               <span
-                className="text-sm font-semibold text-green-500 bg-green-100 block px-4 py-2 rounded-full"
+                className="text-sm font-semibold text-green-500 bg-green-100 block px-4 py-2 rounded-full leading-tight"
                 key={tag}
               >
                 #{tag}

@@ -16,15 +16,40 @@ export const getWishlist = () => {
   return []
 }
 
-export const addBookReadList = id => {
+export const addToBookReadList = id => {
   const existedReadBooks = getReadlist()
   if (existedReadBooks.includes(id)) {
-    toast.warning("Book already exist in Read list")
-  } else {
-    localStorage.setItem(
-      "readBookList",
-      JSON.stringify([...existedReadBooks, id])
-    )
-    toast.success("Book add to read list")
+    return toast.warning("Book already exist in read list", {
+      className: "bg-yellow-50 text-yellow-600",
+    })
   }
+  localStorage.setItem(
+    "book-readlist",
+    JSON.stringify([...existedReadBooks, id])
+  )
+  toast.success("Book successfully added to read list", {
+    className: "bg-green-100 text-green-600",
+  })
+}
+
+export const addToBookWishlist = id => {
+  const existedReadList = getReadlist()
+  const existedWishlist = getWishlist()
+  if (existedReadList.includes(id)) {
+    return toast.warning("Book already exist in read list", {
+      className: "bg-yellow-50 text-yellow-600",
+    })
+  }
+  if (existedWishlist.includes(id)) {
+    return toast.warning("Book already exist in wishlist", {
+      className: "bg-yellow-50 text-yellow-600",
+    })
+  }
+  localStorage.setItem(
+    "book-wishlist",
+    JSON.stringify([...existedWishlist, id])
+  )
+  toast.success("Book successfully added to wishlist", {
+    className: "bg-green-100 text-green-600",
+  })
 }
