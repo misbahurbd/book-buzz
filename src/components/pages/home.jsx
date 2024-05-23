@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import BookCard from "../shared/book-card"
+import { useLocation } from "react-router-dom"
 
 const Home = () => {
+  const location = useLocation()
   const [books, setBooks] = useState([])
 
   useEffect(() => {
@@ -17,6 +19,10 @@ const Home = () => {
 
     fetchBooks()
   }, [])
+
+  useEffect(() => {
+    document.title = "Book Buzz"
+  }, [location])
 
   return (
     <div className="container flex flex-col gap-14">

@@ -1,9 +1,15 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useLocation } from "react-router-dom"
 import sortBy from "sort-by"
 import BookCard from "../shared/book-card"
+import { useEffect } from "react"
 
 const Recommendations = () => {
   const booksData = useLoaderData()
+  const location = useLocation()
+
+  useEffect(() => {
+    document.title = "Best Books - Book Buzz"
+  }, [location])
 
   return (
     <div className="container space-y-8">

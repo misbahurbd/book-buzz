@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useLocation } from "react-router-dom"
 import PropTypes from "prop-types"
 import {
   Bar,
@@ -12,6 +12,7 @@ import {
 import { scaleOrdinal } from "d3-scale"
 import { schemeCategory10 } from "d3-scale-chromatic"
 import { getReadlist } from "../../helper/local-storage"
+import { useEffect } from "react"
 
 const getPath = (x, y, width, height) =>
   `M${x},${y + height}
@@ -44,6 +45,7 @@ TriangleBar.propTypes = {
 
 const PagesToRead = () => {
   const booksData = useLoaderData()
+  const location = useLocation()
   const readBookIds = getReadlist()
   const readBooks = booksData.filter(book => readBookIds.includes(book.bookId))
 
@@ -55,6 +57,10 @@ const PagesToRead = () => {
   }))
 
   const colors = scaleOrdinal(schemeCategory10).range()
+
+  useEffect(() => {
+    document.title = "Page to Road - Book Buzz"
+  }, [location])
 
   return (
     <div className="container">

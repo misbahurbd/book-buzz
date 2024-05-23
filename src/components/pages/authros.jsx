@@ -1,8 +1,14 @@
-import { useLoaderData } from "react-router-dom"
+import { useEffect } from "react"
+import { useLoaderData, useLocation } from "react-router-dom"
 
 const Authors = () => {
   const bookData = useLoaderData()
+  const location = useLocation()
   const authors = [...new Set(bookData.map(book => book.author))]
+
+  useEffect(() => {
+    document.title = "Our Authors - Book Buzz"
+  }, [location])
 
   return (
     <div className="container space-y-8">

@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react"
-import { useLoaderData } from "react-router-dom"
+import { useEffect, useMemo, useState } from "react"
+import { useLoaderData, useLocation } from "react-router-dom"
 import { twMerge } from "tailwind-merge"
 import sortBy from "sort-by"
 import { getReadlist, getWishlist } from "../../helper/local-storage"
@@ -7,6 +7,7 @@ import BookListItem from "../shared/book-list-item"
 import DropdownSelect from "../shared/select"
 
 const ListedBooks = () => {
+  const location = useLocation()
   const [activeTab, setActiveTab] = useState("readlist")
   const [sort, setSort] = useState("")
   const booksData = useLoaderData()
@@ -22,6 +23,10 @@ const ListedBooks = () => {
       .filter(book => listIdes.includes(book.bookId))
       .sort(sortBy(sort))
   }, [activeTab, booksData, sort])
+
+  useEffect(() => {
+    document.title = "Listed Books - Book Buzz"
+  }, [location])
 
   return (
     <div className="container space-y-6">

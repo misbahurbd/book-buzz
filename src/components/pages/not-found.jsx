@@ -1,4 +1,13 @@
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+
 const NotFoundPage = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    document.title = "Page not found! - Book Buzz"
+  }, [location])
+
   return (
     <div className="flex items-center justify-center">
       <div className="max-w-md rounded-lg bg-white shadow-xl p-8 text-center">

@@ -4,6 +4,7 @@ import {
   addToBookWishlist,
 } from "../../helper/local-storage"
 import NotFoundPage from "./not-found"
+import { useEffect } from "react"
 
 const BookDetails = () => {
   const books = useLoaderData()
@@ -17,6 +18,10 @@ const BookDetails = () => {
   const onWishlist = () => {
     addToBookWishlist(bookId)
   }
+
+  useEffect(() => {
+    document.title = `${book.bookName} - Book Buzz`
+  }, [book])
 
   if (!book) {
     return <NotFoundPage />
