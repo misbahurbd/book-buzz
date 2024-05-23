@@ -3,7 +3,7 @@ import {
   addToBookReadList,
   addToBookWishlist,
 } from "../../helper/local-storage"
-import NotFoundPage from "./not-found"
+
 import { useEffect } from "react"
 
 const BookDetails = () => {
@@ -23,9 +23,6 @@ const BookDetails = () => {
     document.title = `${book.bookName} - Book Buzz`
   }, [book])
 
-  if (!book) {
-    return <NotFoundPage />
-  }
   return (
     <section className="container flex gap-10 items-stretch">
       <div className="flex-1">
