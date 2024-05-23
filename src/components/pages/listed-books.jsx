@@ -57,6 +57,14 @@ const ListedBooks = () => {
       </ul>
 
       <div>
+        {activeBookData.length == 0 && (
+          <div>
+            <p className="text-center text-lg font-semibold">
+              No books found in{" "}
+              {activeTab == "readlist" ? "reading list" : "wishlist"}
+            </p>
+          </div>
+        )}
         <ul className="grid gap-4">
           {activeBookData.map(book => (
             <li key={book.bookId}>

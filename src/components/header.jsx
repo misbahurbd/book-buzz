@@ -1,7 +1,11 @@
-import { NavLink } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { HiBars3, HiXMark } from "react-icons/hi2"
+import { NavLink, useLocation } from "react-router-dom"
 import { twMerge } from "tailwind-merge"
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+  const location = useLocation()
   const navLinks = [
     {
       label: "Home",
@@ -17,22 +21,42 @@ const Header = () => {
     },
   ]
 
+  useEffect(() => {
+    setOpen(false)
+  }, [location])
+
   return (
-    <header className="py-8">
-      <nav className="container flex items-center justify-between">
+    <header>
+      <nav className="container py-6 lg:py-8 flex items-center justify-between relative">
         <a
           href="/"
           className="font-bold text-2xl"
         >
           Brain Stole
         </a>
-        <ul className="flex items-center gap-2">
+        <button
+          onClick={() => setOpen(open => !open)}
+          className="md:hidden border rounded-md flex items-center justify-center aspect-square p-1 bg-white select-none cursor-pointer text-2xl"
+        >
+          {!open ? <HiBars3 /> : <HiXMark />}
+        </button>
+        <ul
+          className={twMerge(
+            "flex transition max-lg:bg-neutral-100 max-lg:w-full max-lg:left-0 py-4 max-lg:rounded-md max-lg:shadow-sm max-lg:z-10 items-center gap-2 max-lg:absolute max-lg:flex-col max-lg:top-full",
+            open
+              ? "max-lg:visible max-lg:opacity-100 max-lg:translate-y-0"
+              : "max-lg:invisible max-lg:opacity-0 max-lg:translate-y-4"
+          )}
+        >
           {navLinks.map(navItem => (
-            <li key={navItem.link}>
+            <li
+              className="max-lg:w-full max-lg:px-3"
+              key={navItem.link}
+            >
               <NavLink
                 className={({ isActive }) =>
                   twMerge(
-                    "block leading-tight px-5 py-2.5 text-lg rounded-md border border-transparent transition text-black/80 hover:bg-black/5 hover:border-black/10",
+                    "block leading-tight px-5 py-1.5 text-lg rounded-md border border-transparent transition text-black/80 hover:bg-black/5 hover:border-black/10",
                     isActive &&
                       "border-green-500 text-green-500 font-bold hover:bg-green-100 hover:border-green-500"
                   )
@@ -44,7 +68,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <button className="text-lg px-7 py-3 rounded-md leading-tight transition bg-[#23BE0A] border-2 border-[#23BE0A] text-white font-semibold hover:bg-transparent hover:text-[#23BE0A]">
             Sign In
           </button>

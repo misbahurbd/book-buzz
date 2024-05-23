@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { HiCheck, HiChevronDown } from "react-icons/hi2"
 import { twMerge } from "tailwind-merge"
+import PropTypes from "prop-types"
 
 const DropdownSelect = ({ className, value, setValue, data, label }) => {
   const [open, setOpen] = useState(false)
@@ -14,7 +15,7 @@ const DropdownSelect = ({ className, value, setValue, data, label }) => {
       <button
         onClick={() => setOpen(open => !open)}
         className={twMerge(
-          "w-56 border rounded-lg bg-green-500 px-4 py-3 text-white text-start pr-8 relative",
+          "border rounded-lg bg-green-500 px-4 py-3 text-white text-start pr-12 relative",
           className
         )}
       >
@@ -29,7 +30,7 @@ const DropdownSelect = ({ className, value, setValue, data, label }) => {
       </button>
       <ul
         className={twMerge(
-          "absolute transition w-full left-0 top-[105%] bg-neutral-100 rounded-lg p-1 border",
+          "absolute transition right-0 top-[105%] bg-neutral-100 rounded-lg p-1 border",
           open
             ? "visible opacity-100 translate-y-0"
             : "invisible opacity-0 translate-y-6"
@@ -38,13 +39,13 @@ const DropdownSelect = ({ className, value, setValue, data, label }) => {
         {data &&
           data.map((dataItem, i) => (
             <li
-              className="text-nowrap px-3 py-2 hover:bg-white rounded-md relative select-none cursor-pointer"
+              className="text-nowrap px-3 py-2 pr-10 hover:bg-white rounded-md relative select-none cursor-pointer"
               key={i}
               onClick={() => onSelect(dataItem)}
             >
               {dataItem.label}
               {value === dataItem.value && (
-                <span className="absolute right-3 top-1/2 -translate-y-1/2">
+                <span className="absolute right-2 top-1/2 -translate-y-1/2">
                   <HiCheck />
                 </span>
               )}
@@ -55,3 +56,11 @@ const DropdownSelect = ({ className, value, setValue, data, label }) => {
   )
 }
 export default DropdownSelect
+
+DropdownSelect.propTypes = {
+  className: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  setValue: PropTypes.func.isRequired,
+  data: PropTypes.array,
+  label: PropTypes.string.isRequired,
+}

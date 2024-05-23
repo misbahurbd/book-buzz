@@ -58,33 +58,41 @@ const PagesToRead = () => {
 
   return (
     <div className="container">
-      <div className="p-16 rounded-xl bg-neutral-100">
-        <ResponsiveContainer
-          width="100%"
-          height={500}
-        >
-          <BarChart
-            data={chartValue}
-            strokeDasharray="3 3"
+      <div className="p-0 lg:p-12 rounded-xl lg:bg-neutral-100">
+        {readBooks.length === 0 && (
+          <p className="text-center text-lg font-semibold">
+            No books found in reading list
+          </p>
+        )}
+
+        {readBooks.length > 0 && (
+          <ResponsiveContainer
+            width="100%"
+            height={500}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis dx={-20} />
-            <Bar
-              dataKey="uv"
-              fill="#8884d8"
-              shape={<TriangleBar />}
-              label={{ position: "top" }}
+            <BarChart
+              data={chartValue}
+              strokeDasharray="3 3"
             >
-              {chartValue.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={colors[index % 20]}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis dx={-20} />
+              <Bar
+                dataKey="uv"
+                fill="#8884d8"
+                shape={<TriangleBar />}
+                label={{ position: "top" }}
+              >
+                {chartValue.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={colors[index % 20]}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        )}
       </div>
     </div>
   )

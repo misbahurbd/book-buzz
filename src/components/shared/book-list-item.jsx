@@ -4,8 +4,8 @@ import { IoLocationOutline } from "react-icons/io5"
 
 const BookListItem = ({ book }) => {
   return (
-    <article className="flex items-center gap-6 rounded-2xl border border-gray-200 p-6">
-      <div className="relative bg-black/5 rounded-xl h-full min-w-60 aspect-square">
+    <article className="flex flex-col lg:flex-row items-center gap-6 rounded-2xl border border-gray-200 p-6">
+      <div className="relative bg-black/5 rounded-xl h-[240px] max-lg:w-full lg:aspect-square">
         <img
           src={`/img/${book.image}`}
           alt={book.bookName}
@@ -15,8 +15,8 @@ const BookListItem = ({ book }) => {
       <div className="space-y-4 flex-1">
         <h3 className="text-3xl font-bold">{book.bookName}</h3>
         <p className="text-neutral-700">By : {book.author}</p>
-        <div className="flex items-center gap-4 text-neutral-700">
-          <p className="flex gap-2 items-center">
+        <div className="flex flex-col items-start lg:flex-row lg:items-center gap-4 text-neutral-700">
+          <p className="flex gap-2 items-center flex-wrap">
             <strong className="mr-2">Tags</strong>
             {book.tags.map(tag => (
               <span
@@ -32,7 +32,7 @@ const BookListItem = ({ book }) => {
             <span>Year of Publishing: {book.yearOfPublishing}</span>
           </p>
         </div>
-        <div className="flex gap-3 text-neutral-500 items-center">
+        <div className="flex flex-col items-start lg:flex-row lg:items-center text-neutral-500 gap-4">
           <p className="flex gap-1.5 items-center">
             <HiOutlineUsers />
             <span>Publisher: {book.publisher}</span>
@@ -43,14 +43,14 @@ const BookListItem = ({ book }) => {
           </p>
         </div>
         <hr />
-        <ul className="flex items-center gap-2">
-          <li className="text-sm px-4 py-2 rounded-full text-blue-600 bg-blue-600/10">
+        <ul className="flex items-center gap-2 max-lg:flex-wrap">
+          <li className="max-lg:flex-1 text-nowrap text-center text-sm px-4 py-2 rounded-full text-blue-600 bg-blue-600/10">
             Category: {book.category}
           </li>
-          <li className="text-sm px-4 py-2 rounded-full text-orange-600 bg-orange-600/10">
+          <li className="max-lg:flex-1 text-nowrap text-center text-sm px-4 py-2 rounded-full text-orange-600 bg-orange-600/10">
             Rating: {book.category}
           </li>
-          <li>
+          <li className="text-center max-lg:flex-1">
             <a
               href={`/book/${book.bookId}`}
               className="block text-sm px-4 py-2 rounded-full text-white bg-green-500"
