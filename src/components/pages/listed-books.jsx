@@ -1,24 +1,39 @@
 import { useMemo, useState } from "react"
 import { useLoaderData } from "react-router-dom"
-import { getReadlist, getWishlist } from "../../helper/local-storage"
 import { twMerge } from "tailwind-merge"
+import sortBy from "sort-by"
+import { getReadlist, getWishlist } from "../../helper/local-storage"
 import BookListItem from "../shared/book-list-item"
+import DropdownSelect from "../shared/select"
 
 const ListedBooks = () => {
   const [activeTab, setActiveTab] = useState("readlist")
+  const [sort, setSort] = useState("")
   const booksData = useLoaderData()
-
-  console.log(activeTab)
+  const sortOptions = [
+    { label: "Rating", value: "rating" },
+    { label: "Number of pages", value: "totalPages" },
+    { label: "Publisher year", value: "yearOfPublishing" },
+  ]
 
   const activeBookData = useMemo(() => {
     const listIdes = activeTab === "readlist" ? getReadlist() : getWishlist()
-    return booksData.filter(book => listIdes.includes(book.bookId))
-  }, [activeTab, booksData])
+    return booksData
+      .filter(book => listIdes.includes(book.bookId))
+      .sort(sortBy(sort))
+  }, [activeTab, booksData, sort])
 
   return (
     <div className="container space-y-6">
       <div className="bg-neutral-100 px-8 py-6 rounded-xl flex items-center justify-between">
         <h2 className="text-3xl font-bold">Books</h2>
+        <DropdownSelect
+          defaultValue={"Sort by"}
+          data={sortOptions}
+          value={sort}
+          setValue={setSort}
+          label={"Sort By"}
+        />
       </div>
       <ul className="border-b border-neutral-200  flex">
         <li

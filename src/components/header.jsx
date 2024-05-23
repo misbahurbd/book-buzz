@@ -24,7 +24,7 @@ const Header = () => {
           href="/"
           className="font-bold text-2xl"
         >
-          Book Stol
+          Brain Stole
         </a>
         <ul className="flex items-center gap-2">
           {navLinks.map(navItem => (
