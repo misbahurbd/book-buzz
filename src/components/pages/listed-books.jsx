@@ -17,8 +17,8 @@ const ListedBooks = () => {
 
   return (
     <div className="container space-y-6">
-      <div>
-        <h2>Books</h2>
+      <div className="bg-neutral-100 px-8 py-6 rounded-xl flex items-center justify-between">
+        <h2 className="text-3xl font-bold">Books</h2>
       </div>
       <ul className="border-b border-neutral-200  flex">
         <li

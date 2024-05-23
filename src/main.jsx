@@ -8,6 +8,7 @@ import Home from "./components/pages/home"
 import ListedBooks from "./components/pages/listed-books"
 import BookDetails from "./components/pages/book-details"
 import NotFoundPage from "./components/pages/not-found"
+import PagesToRead from "./components/pages/pages-to-read"
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         loader: () => fetch("/db.json"),
       },
       {
+        path: "/pages-to-read",
+        element: <PagesToRead />,
+        loader: () => fetch("/db.json"),
+      },
+      {
         path: "*",
         element: <NotFoundPage />,
       },
@@ -38,7 +44,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Toaster position="top-center" />
+    <Toaster
+      position="bottom-center"
+      duration={1000}
+    />
     <RouterProvider router={router} />
   </React.StrictMode>
 )
