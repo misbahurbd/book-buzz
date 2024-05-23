@@ -44,13 +44,13 @@ const Header = () => {
         </a>
         <button
           onClick={() => setOpen(open => !open)}
-          className="md:hidden border rounded-md flex items-center justify-center aspect-square p-1 bg-white select-none cursor-pointer text-2xl"
+          className="md:hidden border rounded-md flex items-center justify-center aspect-square p-1 bg-white select-none cursor-pointer text-3xl"
         >
           {!open ? <HiBars3 /> : <HiXMark />}
         </button>
         <ul
           className={twMerge(
-            "flex transition max-lg:bg-neutral-100 max-lg:w-full max-lg:left-0 py-4 max-lg:rounded-md max-lg:shadow-sm max-lg:z-10 items-center gap-2 max-lg:absolute max-lg:flex-col max-lg:top-full",
+            "flex transition max-lg:bg-neutral-100 max-lg:w-full max-lg:left-0 py-4 max-lg:rounded-md max-lg:shadow-sm max-lg:z-10 items-center gap-2 max-lg:absolute max-lg:flex-col max-lg:top-full max-lg:before:size-5 max-lg:before:bg-neutral-100 max-lg:before:absolute max-lg:before:right-6 before:top-0 before:-translate-y-1/2 before:rotate-45",
             open
               ? "max-lg:visible max-lg:opacity-100 max-lg:translate-y-0"
               : "max-lg:invisible max-lg:opacity-0 max-lg:translate-y-4"
