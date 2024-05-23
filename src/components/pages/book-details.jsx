@@ -3,6 +3,7 @@ import {
   addToBookReadList,
   addToBookWishlist,
 } from "../../helper/local-storage"
+import NotFoundPage from "./not-found"
 
 const BookDetails = () => {
   const books = useLoaderData()
@@ -17,6 +18,9 @@ const BookDetails = () => {
     addToBookWishlist(bookId)
   }
 
+  if (!book) {
+    return <NotFoundPage />
+  }
   return (
     <section className="container flex gap-10 items-stretch">
       <div className="flex-1">

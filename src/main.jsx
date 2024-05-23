@@ -9,6 +9,8 @@ import ListedBooks from "./components/pages/listed-books"
 import BookDetails from "./components/pages/book-details"
 import NotFoundPage from "./components/pages/not-found"
 import PagesToRead from "./components/pages/pages-to-read"
+import Recommendations from "./components/pages/recommendations"
+import Authors from "./components/pages/authros"
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ const router = createBrowserRouter([
       {
         path: "/pages-to-read",
         element: <PagesToRead />,
+        loader: () => fetch("/db.json"),
+      },
+      {
+        path: "/recommended-books",
+        element: <Recommendations />,
+        loader: () => fetch("/db.json"),
+      },
+      {
+        path: "/authors",
+        element: <Authors />,
         loader: () => fetch("/db.json"),
       },
       {

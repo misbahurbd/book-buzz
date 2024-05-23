@@ -1,6 +1,6 @@
 const NotFoundPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center">
       <div className="max-w-md rounded-lg bg-white shadow-xl p-8 text-center">
         <h1 className="text-4xl font-bold text-red-500">
           Oops! Page not found

@@ -19,6 +19,14 @@ const Header = () => {
       label: "Pages to Read",
       link: "/pages-to-read",
     },
+    {
+      label: "Best Books",
+      link: "/recommended-books",
+    },
+    {
+      label: "Our Authors",
+      link: "/authors",
+    },
   ]
 
   useEffect(() => {
@@ -56,7 +64,7 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   twMerge(
-                    "block leading-tight px-5 py-1.5 text-lg rounded-md border border-transparent transition text-black/80 hover:bg-black/5 hover:border-black/10",
+                    "block leading-tight px-4 py-1.5 text-lg rounded-md border border-transparent transition text-black/80 hover:bg-black/5 hover:border-black/10",
                     isActive &&
                       "border-green-500 text-green-500 font-bold hover:bg-green-100 hover:border-green-500"
                   )
