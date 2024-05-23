@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": "1",
+    "bookName": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "image": "the-great-gatsby.jpeg",
+    "review": "A poignant critique of the American Dream, 'The Great Gatsby' is a timeless tale of wealth, love, and the pursuit of happiness.",
+    "totalPages": 180,
+    "rating": 4.4,
+    "category": "Classic",
+    "tags": ["Classic", "American Literature", "1920s"],
+    "publisher": "Charles Scribner's Sons",
+    "yearOfPublishing": 1925
+  },
+  {
+    "bookId": "2",
+    "bookName": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "image": "to-kill-a-mockingbird.jpeg",
+    "review": "An evocative tale of racial injustice and moral growth, 'To Kill a Mockingbird' is as moving and relevant today as it was when first published.",
+    "totalPages": 281,
+    "rating": 4.8,
+    "category": "Classic",
+    "tags": ["Classic", "Social Issues", "Coming of Age"],
+    "publisher": "J.B. Lippincott & Co.",
+    "yearOfPublishing": 1960
+  },
+  {
+    "bookId": "3",
+    "bookName": "1984",
+    "author": "George Orwell",
+    "image": "1984.jpeg",
+    "review": "A chilling dystopian novel, '1984' explores themes of totalitarianism, surveillance, and individuality.",
+    "totalPages": 328,
+    "rating": 4.7,
+    "category": "Dystopian",
+    "tags": ["Dystopian", "Political Fiction", "Science Fiction"],
+    "publisher": "Secker & Warburg",
+    "yearOfPublishing": 1949
+  },
+  {
+    "bookId": "4",
+    "bookName": "Harry Potter and the Sorcerer",
+    "author": "J.K. Rowling",
+    "image": "harry-potter.jpeg",
+    "review": "A magical start to an unforgettable series, 'Harry Potter and the Sorcerer's Stone' introduces readers to the enchanting world of Hogwarts.",
+    "totalPages": 309,
+    "rating": 4.9,
+    "category": "Fantasy",
+    "tags": ["Fantasy", "Adventure", "Young Adult"],
+    "publisher": "Bloomsbury",
+    "yearOfPublishing": 1997
+  },
+  {
+    "bookId": "5",
+    "bookName": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "image": "the-catcher-in-the-rye.png",
+    "review": "A profound exploration of teenage angst and rebellion, 'The Catcher in the Rye' is a literary classic that continues to resonate with readers.",
+    "totalPages": 214,
+    "rating": 4.2,
+    "category": "Classic",
+    "tags": ["Classic", "Coming of Age", "American Literature"],
+    "publisher": "Little, Brown and Company",
+    "yearOfPublishing": 1951
+  },
+  {
+    "bookId": "6",
+    "bookName": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "image": "the-hobbit.jpg",
+    "review": "A captivating prelude to the Lord of the Rings, 'The Hobbit' is a masterful tale of adventure and discovery.",
+    "totalPages": 310,
+    "rating": 4.6,
+    "category": "Fantasy",
+    "tags": ["Fantasy", "Adventure", "Epic"],
+    "publisher": "George Allen & Unwin",
+    "yearOfPublishing": 1937
+  }
+]

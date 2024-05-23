@@ -32,8 +32,9 @@ const Header = () => {
               <NavLink
                 className={({ isActive }) =>
                   twMerge(
-                    "block px-5 py-2.5 text-lg rounded-md border border-transparent transition text-black/80",
-                    isActive && "border-green-500 text-green-500 font-bold"
+                    "block leading-tight px-5 py-2.5 text-lg rounded-md border border-transparent transition text-black/80 hover:bg-black/5 hover:border-black/10",
+                    isActive &&
+                      "border-green-500 text-green-500 font-bold hover:bg-green-100 hover:border-green-500"
                   )
                 }
                 to={navItem.link}
@@ -44,10 +45,10 @@ const Header = () => {
           ))}
         </ul>
         <div className="flex items-center gap-4">
-          <button className="text-lg px-7 py-3 rounded-md bg-[#23BE0A] text-white font-semibold">
+          <button className="text-lg px-7 py-3 rounded-md leading-tight transition bg-[#23BE0A] border-2 border-[#23BE0A] text-white font-semibold hover:bg-transparent hover:text-[#23BE0A]">
             Sign In
           </button>
-          <button className="text-lg px-7 py-3 rounded-md bg-[#59C6D2] text-white font-semibold">
+          <button className="text-lg px-7 py-3 rounded-md leading-tight transition bg-[#59C6D2] border-2 border-[#59C6D2] text-white font-semibold hover:bg-transparent hover:text-[#59C6D2]">
             Sign Up
           </button>
         </div>

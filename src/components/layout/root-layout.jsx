@@ -5,7 +5,7 @@ const RootLayout = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="mb-12">
         <Outlet />
       </main>
     </>
