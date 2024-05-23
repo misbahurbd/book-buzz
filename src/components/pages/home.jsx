@@ -3,9 +3,6 @@ import BookCard from "../shared/book-card"
 
 const Home = () => {
   const [books, setBooks] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  console.log(isLoading)
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -15,8 +12,6 @@ const Home = () => {
         setBooks(booksData)
       } catch (error) {
         console.log(error)
-      } finally {
-        setIsLoading(false)
       }
     }
 

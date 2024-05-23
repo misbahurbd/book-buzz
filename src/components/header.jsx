@@ -32,7 +32,7 @@ const Header = () => {
           href="/"
           className="font-bold text-2xl"
         >
-          Brain Stole
+          Book Buzz
         </a>
         <button
           onClick={() => setOpen(open => !open)}
